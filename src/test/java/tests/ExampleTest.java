@@ -1,5 +1,7 @@
 import java.io.File;
 import java.util.List;
+
+import org.checkerframework.checker.templatefora.TemplateforaChecker;
 import org.checkerframework.framework.test.CheckerFrameworkPerDirectoryTest;
 import org.junit.runners.Parameterized.Parameters;
 
@@ -14,7 +16,7 @@ public class ExampleTest extends CheckerFrameworkPerDirectoryTest {
     public ExampleTest(List<File> testFiles) {
         super(
                 testFiles,
-                org.checkerframework.checker.empty.EmptyChecker.class,
+                TemplateforaChecker.class,
                 "example",
                 "-Anomsgtext",
                 "-Astubs=stubs/",

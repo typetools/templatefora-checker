@@ -1,4 +1,4 @@
-package org.checkerframework.checker.empty;
+package org.checkerframework.checker.templatefora;
 
 import org.checkerframework.common.basetype.BaseTypeChecker;
 
@@ -8,4 +8,4 @@ import org.checkerframework.common.basetype.BaseTypeChecker;
  * <p>This one does nothing. The Checker Framework manual tells you how to make it do something:
  * https://checkerframework.org/manual/#creating-a-checker
  */
-public class EmptyChecker extends BaseTypeChecker {}
+public class TemplateforaChecker extends BaseTypeChecker {}

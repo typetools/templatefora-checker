@@ -28,7 +28,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'org.checkerframework'
-            artifactId = 'empty-checker'
+            artifactId = 'templatefora-checker'
             version = '0.1-SNAPSHOT'
 
             from components.java
