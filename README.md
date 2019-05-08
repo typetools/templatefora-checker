@@ -1,2 +1,3 @@
 # empty-checker
-An empty Checker Framework checker intended as a template
+
+This is a template for a pluggable type-checker built on the Checker Framework.

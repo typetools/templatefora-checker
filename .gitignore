@@ -1,0 +1,9 @@
+# intelliJ
+.idea
+*.iml
+
+# emacs backups
+*~
+
+# gradle
+.gradle

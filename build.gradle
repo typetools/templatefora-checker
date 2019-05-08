@@ -1,5 +1,4 @@
 plugins {
-    // Apply the java plugin to add support for Java
     id 'java'
     id 'maven-publish'
 }
@@ -16,7 +15,7 @@ dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     implementation 'org.checkerframework:checker:2.8.1'
 
-    // Use JUnit test framework
+    // Testing
     testImplementation 'junit:junit:4.12'
     testCompile 'org.checkerframework:testlib:2.5.4'
 }
@@ -35,4 +34,4 @@ publishing {
             from components.java
         }
     }
-} 
+}
