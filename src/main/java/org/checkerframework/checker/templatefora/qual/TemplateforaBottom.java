@@ -12,13 +12,6 @@ import org.checkerframework.framework.qual.TypeUseLocation;
 
 /**
  * The bottom type for the TemplateFora Checker's type system.
- *
- * <p>Bottom types are the default for null and for the java.lang.Void class for most type systems.
- * The @ImplicitFor annotation below declaratively tells the typechecker to make this annotation the
- * default for those values.
- *
- * <p>When adding your own qualifiers, you should change this class' @SubtypeOf annotation to
- * indicate which qualifiers are at the bottom of your lattice.
  */
 @SubtypeOf({TemplateforaUnknown.class})
 @Retention(RetentionPolicy.RUNTIME)
