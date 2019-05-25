@@ -24,6 +24,7 @@ tasks.withType(JavaCompile).all {
     options.compilerArgs.add("-Xlint:all")
 }
 
+// Run `./gradlew publish` to publish your checker to your local Maven repository.
 publishing {
     publications {
         maven(MavenPublication) {
