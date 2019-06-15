@@ -13,7 +13,11 @@ sourceCompatibility = 1.8
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    implementation 'org.checkerframework:checker:2.8.1'
+    implementation 'org.checkerframework:checker:2.8.1' // Comment this line while using local dependency of CF.
+    
+    compile files('${CHECKERFRAMEWORK}/checker/dist/checker-qual.jar')
+    compile files('${CHECKERFRAMEWORK}/checker/dist/checker.jar')
+    compile files('${CHECKERFRAMEWORK}/checker/dist/jdk8.jar')
 
     // Testing
     testImplementation 'junit:junit:4.12'
