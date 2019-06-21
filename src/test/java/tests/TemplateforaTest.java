@@ -13,18 +13,18 @@ import org.junit.runners.Parameterized.Parameters;
  * https://github.com/typetools/checker-framework/blob/master/checker/tests/README .
  */
 public class TemplateforaTest extends CheckerFrameworkPerDirectoryTest {
-    public TemplateforaTest(List<File> testFiles) {
-        super(
-                testFiles,
-                TemplateforaChecker.class,
-                "templatefora",
-                "-Anomsgtext",
-                "-Astubs=stubs/",
-                "-nowarn");
-    }
+  public TemplateforaTest(List<File> testFiles) {
+    super(
+        testFiles,
+        TemplateforaChecker.class,
+        "templatefora",
+        "-Anomsgtext",
+        "-Astubs=stubs/",
+        "-nowarn");
+  }
 
-    @Parameters
-    public static String[] getTestDirs() {
-        return new String[] {"templatefora"};
-    }
+  @Parameters
+  public static String[] getTestDirs() {
+    return new String[] {"templatefora"};
+  }
 }

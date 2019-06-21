@@ -10,9 +10,7 @@ import org.checkerframework.framework.qual.SubtypeOf;
 import org.checkerframework.framework.qual.TargetLocations;
 import org.checkerframework.framework.qual.TypeUseLocation;
 
-/**
- * The bottom type for the TemplateFora Checker's type system.
- */
+/** The bottom type for the TemplateFora Checker's type system. */
 @SubtypeOf({TemplateforaUnknown.class})
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE_USE, ElementType.TYPE_PARAMETER})

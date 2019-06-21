@@ -1,6 +1,9 @@
 plugins {
     id 'java'
     id 'maven-publish'
+
+    // spotless enforces style
+    id "com.diffplug.gradle.spotless" version "3.23.0"
 }
 
 repositories {
@@ -34,5 +37,14 @@ publishing {
 
             from components.java
         }
+    }
+}
+
+// run google java format to enforce style
+spotless {
+    // uncomment this line to temporarily disable spotless (i.e. when debugging)
+    // enforceCheck = false
+    java {
+        googleJavaFormat()
     }
 }
