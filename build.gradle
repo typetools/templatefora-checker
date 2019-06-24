@@ -10,10 +10,18 @@ repositories {
 }
 
 sourceCompatibility = 1.8
+def checkerframework_local = false  // Set this variable to [true] while using local version of checker framework.
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    implementation 'org.checkerframework:checker:2.8.1'
+    if (checkerframework_local) {
+        implementation files('${CHECKERFRAMEWORK}/checker/dist/checker-qual.jar')
+        implementation files('${CHECKERFRAMEWORK}/checker/dist/checker.jar')
+        implementation files('${CHECKERFRAMEWORK}/checker/dist/jdk8.jar')
+    }
+    else{
+        implementation 'org.checkerframework:checker:2.8.2'
+    }
 
     // Testing
     testImplementation 'junit:junit:4.12'
