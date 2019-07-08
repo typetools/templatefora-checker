@@ -44,3 +44,7 @@ publishing {
         }
     }
 }
+
+clean.doFirst {
+    delete "${rootDir}/tests/build/"
+}
