@@ -19,7 +19,7 @@ dependencies {
         implementation files('${CHECKERFRAMEWORK}/checker/dist/checker.jar')
         implementation files('${CHECKERFRAMEWORK}/checker/dist/jdk8.jar')
     }
-    else{
+    else {
         implementation 'org.checkerframework:checker:2.8.2'
     }
 
