@@ -4,9 +4,9 @@ This is a template for a pluggable type-checker built on the Checker Framework.
 
 ### How to use this template to build your own typechecker
 
-To build your own typechecker, copy this repository's contents (don't make a fork),
-then make changes to your copy.
-We will give examples based on creating a checker to verify character encoding, such as UTF-8.
+To build your own typechecker:
+1. Copy this repository's contents (don't make a fork).
+2. Make changes to your copy.  We will give examples based on creating a checker to verify character encoding, such as UTF-8.
 
 * Choose a name for your type system (e.g., "Character Encoding Checker"), a name for the implementation (e.g., "CharEncoding"), and a directory name (e.g., "charencoding").
 * Change every occurrence of "TemplateForA" to "Character Encoding".
@@ -22,17 +22,25 @@ We will give examples based on creating a checker to verify character encoding, 
   `org.checkerframework.checker.templatefora`) so that it reflects your
   organization's naming standards.
 * Change the copyright info in the `LICENSE` file.  You may change the license as well, if you wish.
-* Modify this README so that it describes your checker, instead of this text. :)
 * Follow the ["How to create a new checker" instructions](https://checkerframework.org/manual/#creating-a-checker) in the Checker Framework Manual .
+* Remove all text up from the top of this README to this line.
+  Further modify this README so that it describes your checker.
 
-### How the build system works
+# TemplateForA Checker
 
-This template uses [Gradle](https://gradle.org/) as its build system.
-To build the checker, run `./gradlew build` from the top-level directory.
+A common problem when programming is TODO.
+This results in a run-time exception.
 
-The `build.gradle` file contains the definition of the build. The only
-significant modification from a standard Gradle Java project is the
-addition of the Maven publishing plugin, which permits you to publish
-your checker to your local Maven repository by running `./gradlew publish`.
-This is useful for testing out your checker on a real codebase before you
-publish it elsewhere, such as to Maven Central.
+The TemplateForA Checker guarantees, at compile time, that your code will
+not suffer that run-time exception.
+
+
+
+### How to build the checker
+
+Run these commands from the top-level directory.
+
+`./gradlew build`: build the checker
+
+`./gradlew publish`: publish the checker to your local Maven repository.
+This is useful for test before you publish it elsewhere, such as to Maven Central.
