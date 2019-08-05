@@ -8,7 +8,9 @@ import org.checkerframework.framework.qual.DefaultQualifierInHierarchy;
 import org.checkerframework.framework.qual.SubtypeOf;
 
 /**
- * The top type for the TemplateFora Checker's type system.
+ * The value might or might not be TODO. It is not safe to use for TODO.
+ *
+ * <p>This is the default type, so programmers usually do not need to write it.
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE_USE, ElementType.TYPE_PARAMETER})

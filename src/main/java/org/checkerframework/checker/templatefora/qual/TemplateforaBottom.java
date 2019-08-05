@@ -11,7 +11,7 @@ import org.checkerframework.framework.qual.TargetLocations;
 import org.checkerframework.framework.qual.TypeUseLocation;
 
 /**
- * The bottom type for the TemplateFora Checker's type system.
+ * The value is definitely TODO. It is safe to use for TODO.
  */
 @SubtypeOf({TemplateforaUnknown.class})
 @Retention(RetentionPolicy.RUNTIME)
