@@ -6,7 +6,8 @@ This is a template for a pluggable type-checker built on the Checker Framework.
 
 To build your own typechecker:
 1. Copy this repository's contents (don't make a fork).
-2. Make changes to your copy.  We will give examples based on creating a checker to verify character encoding, such as UTF-8.
+2. Make changes to your copy.  We will give examples based on creating a
+   checker to verify character encoding, such as UTF-8.
 
 * Choose a name for your type system (e.g., "Character Encoding Checker"), a name for the implementation (e.g., "CharEncoding"), and a directory name (e.g., "charencoding").
 * Change every occurrence of "TemplateForA" to "Character Encoding".
@@ -25,10 +26,12 @@ To build your own typechecker:
 * Follow the ["How to create a new checker"
   instructions](https://checkerframework.org/manual/#creating-a-checker)
   in the Checker Framework Manual.
-* While following the instructions, you should have all accurrences of TODO
-  (and probably all accurrences of "Bottom") throughout the repository, and
+
+* While following the instructions, you should have changed all occurrences of TODO
+  (and probably all occurrences of "Bottom") throughout the repository, and
   modified this README so that it describes your checker.
-* Remove all text up from the top of this README, throug this line.
+
+* Remove all text up from the top of this README, through this line.
 
 
 # TemplateForA Checker
@@ -42,9 +45,11 @@ not suffer that run-time exception.
 
 ## How to run the checker
 
-First, publish the checker to your local Maven repository by running `./gradlew publish`,
+First, publish the checker to your local Maven repository by running
+`./gradlew publish` in this repository.
 
-Then, if you use Gradle, adde the following to your `build.gradle` file:
+Then, if you use Gradle, add the following to the `build.gradle` file in
+the project you wish to type-check (using Maven is similar):
 
 ```
 repositories {
@@ -62,14 +67,14 @@ informing you of any potential errors related to TODO.
 
 ## How to specify your code
 
-At comile time, the TemplateForAChecker estimates what values the program
+At compile time, the TemplateForAChecker estimates what values the program
 may compute at run time.  It issues a warning if the program may TODO.
 It works via a technique called pluggable typechecking.
 
 You need to specify the contracts of methods and fields in your code --
 that is, their requirements and their guarantees.  The TemplateForAChecker
 ensures that your code is consistent with the contracts, and that the
-contracts guuarantee that TODO.
+contracts guarantee that TODO.
 
 You specify your code by writing *qualifiers* such as `@TemplateforaBottom`
 on types, to indicate more precisely what values the type represents.
