@@ -1,9 +1,10 @@
-# intelliJ
+# Generated files
+.gradle
+build
+
+# IntelliJ
 .idea
 *.iml
 
-# emacs backups
+# Emacs backups
 *~
-
-# gradle
-.gradle
