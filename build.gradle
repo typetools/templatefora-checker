@@ -45,6 +45,10 @@ publishing {
     }
 }
 
+test {
+    inputs.files("tests/templatefora")
+}
+
 clean.doFirst {
     delete "${rootDir}/tests/build/"
 }
