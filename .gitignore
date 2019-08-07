@@ -8,3 +8,6 @@ build
 
 # Emacs backups
 *~
+
+# checker-qual
+templatefora-checker-qual/src
