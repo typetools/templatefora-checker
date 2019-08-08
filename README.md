@@ -21,8 +21,7 @@ To build your own typechecker:
   to an organization you belong to that can publish to Maven
   Central. Change the name of the package containing the source (currently
   `org.checkerframework.checker.templatefora`) so that it reflects your
-  organization's naming standards.
-* Replace all instances of `org.checkerframework.checker.templatefora` and `org/checkerframework/checker/templatefora`. For example, change the path `**/org/checkerframework/checker/templatefora/qual/**` specified in the `templatefora-checker-qual/build.gradle` with your actual path.
+  organization's naming standards. Replace all instances of `org.checkerframework.checker.templatefora` and `org/checkerframework/checker/templatefora`.
 * Change the copyright info in the `LICENSE` file.  You may change the license as well, if you wish.
 * Follow the ["How to create a new checker"
   instructions](https://checkerframework.org/manual/#creating-a-checker)
