@@ -21,7 +21,8 @@ To build your own typechecker:
   to an organization you belong to that can publish to Maven
   Central. Change the name of the package containing the source (currently
   `org.checkerframework.checker.templatefora`) so that it reflects your
-  organization's naming standards. Replace all instances of `org.checkerframework.checker.templatefora` and `org/checkerframework/checker/templatefora`.
+  organization's naming standards. Replace all instances of `org.checkerframework.checker.templatefora` and
+  `org/checkerframework/checker/templatefora` with whatever name you have chosen.
 * Change the copyright info in the `LICENSE` file.  You may change the license as well, if you wish.
 * Follow the ["How to create a new checker"
   instructions](https://checkerframework.org/manual/#creating-a-checker)
