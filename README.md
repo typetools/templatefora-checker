@@ -32,7 +32,7 @@ To build your own typechecker:
   (and probably all occurrences of "Bottom") throughout the repository, and
   modified this README so that it describes your checker.
 
-* Remove all text up from the top of this README, through this line.
+* Remove all text from the top of this README, through this line.
 
 
 # TemplateForA Checker
