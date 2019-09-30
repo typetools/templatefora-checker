@@ -5,7 +5,8 @@ This is a template for a pluggable type-checker built on the Checker Framework.
 ### How to use this template to build your own typechecker
 
 To build your own typechecker:
-1. Copy this repository's contents (don't make a fork).
+1. Copy this repository's contents by clicking the
+   "Use this template" green button on its Github page.  Don't make a fork.
 2. Make changes to your copy.  We will give examples based on creating a
    checker to verify character encoding, such as UTF-8.
 
