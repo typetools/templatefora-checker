@@ -15,7 +15,7 @@ and change every occurrence of "TemplateForA" to "Character Encoding".
 This command does so:
 
 ```
-find . -type f -exec sed -i -e 's/TemplateForA/Character Encoding/g' {} \;
+find . -name .git -prune -o -type f -exec sed -i -e 's/TemplateForA/Character Encoding/g' {} \;
 ```
 
 2. Choose a name for the implementation class (e.g., "CharEncoding"), and
@@ -25,7 +25,7 @@ This includes in file names (rename several files including
 These commands make the changes:
 
 ```
-find . -type f -exec sed -i -e 's/Templatefora/CharEncoding/g' {} \;
+find . -name .git -prune -o -type f -exec sed -i -e 's/Templatefora/CharEncoding/g' {} \;
 find . -name '*Templatefora*' -exec bash -c 'mv $0 ${0/Templatefora/CharEncoding}' {} \;
 ```
 
