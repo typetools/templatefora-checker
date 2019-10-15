@@ -15,7 +15,7 @@ configurations {
 }
 
 ext.versions = [
-        checkerFramework: "2.11.0",
+        checkerFramework: "2.11.1",
 ]
 
 

@@ -7,7 +7,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.checkerframework:checker:2.11.0'
+    implementation 'org.checkerframework:checker:2.11.1'
 }
 
 task copySources(type: Copy) {
