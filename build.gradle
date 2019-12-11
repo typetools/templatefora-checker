@@ -33,6 +33,8 @@ dependencies {
         implementation "org.checkerframework:checker:${versions.checkerFramework}"
     }
 
+    compileOnly "com.google.errorprone:javac:9+181-r4173-1"
+
     // Testing
     testImplementation 'junit:junit:4.12'
     testCompile "org.checkerframework:framework-test:${versions.checkerFramework}"
