@@ -127,7 +127,7 @@ Run these commands from the top-level directory.
 
 `./gradlew build`: build the checker
 
-`./gradlew publish`: publish the checker to your local Maven repository.
+`./gradlew publishToMavenLocal`: publish the checker to your local Maven repository.
 This is useful for testing before you publish it elsewhere, such as to Maven Central.
 
 
