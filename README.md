@@ -90,7 +90,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    annotationProcessor 'org.checkerframework.checker.templatefora:0.1-SNAPSHOT'
+    annotationProcessor 'org.checkerframework:templatefora-checker:0.1-SNAPSHOT'
 }
 ```
 
