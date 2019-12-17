@@ -79,7 +79,7 @@ not suffer that run-time exception.
 ## How to run the checker
 
 First, publish the checker to your local Maven repository by running
-`./gradlew publish` in this repository.
+`./gradlew publishToMavenLocal` in this repository.
 
 Then, if you use Gradle, add the following to the `build.gradle` file in
 the project you wish to type-check (using Maven is similar):
@@ -127,7 +127,7 @@ Run these commands from the top-level directory.
 
 `./gradlew build`: build the checker
 
-`./gradlew publish`: publish the checker to your local Maven repository.
+`./gradlew publishToMavenLocal`: publish the checker to your local Maven repository.
 This is useful for testing before you publish it elsewhere, such as to Maven Central.
 
 
