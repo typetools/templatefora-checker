@@ -15,7 +15,7 @@ configurations {
 }
 
 ext.versions = [
-        checkerFramework: "3.3.0",
+        checkerFramework: "3.4.0",
 ]
 
 
@@ -27,7 +27,6 @@ dependencies {
     if (checkerframework_local) {
         implementation files('${CHECKERFRAMEWORK}/checker/dist/checker-qual.jar')
         implementation files('${CHECKERFRAMEWORK}/checker/dist/checker.jar')
-        implementation files('${CHECKERFRAMEWORK}/checker/dist/jdk8.jar')
     }
     else {
         implementation "org.checkerframework:checker:${versions.checkerFramework}"
