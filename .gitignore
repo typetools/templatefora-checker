@@ -1,4 +1,4 @@
-# Generated files
+# Gradle
 .gradle
 build
 
@@ -6,7 +6,7 @@ build
 .idea
 *.iml
 
-# Emacs backups
+# Emacs
 *~
 
 # checker-qual
