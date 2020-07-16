@@ -71,7 +71,7 @@ clean.doFirst {
 }
 
 task printClasspath {
-    description: 'Prints the runtime classpath of the checker. When using the checker to typecheck' +
+    description 'Prints the runtime classpath of the checker. When using the checker to typecheck' +
             'another project, you should put the result of running this task on either the processor' +
             'path or the classpath of the target project.'
     doLast {
