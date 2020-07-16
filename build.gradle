@@ -69,3 +69,12 @@ test {
 clean.doFirst {
     delete "${rootDir}/tests/build/"
 }
+
+// This task prints the classpath for this checker and its dependencies. When using this checker
+// to typecheck another project, you should put the result of running this task on either the
+// processor path or the classpath of the target project.
+task printClasspath {
+    doLast {
+        println sourceSets.main.runtimeClasspath.asPath
+    }
+}
