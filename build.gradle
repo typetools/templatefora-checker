@@ -78,3 +78,13 @@ task printClasspath {
         println sourceSets.main.runtimeClasspath.asPath
     }
 }
+
+sourceSets {
+    main {
+        resources {
+            // ensures that any .stub files present in the same directory as
+            // the checker source code are copied into the distributed jar
+            srcDirs += ['src/main/java']
+        }
+    }
+}
