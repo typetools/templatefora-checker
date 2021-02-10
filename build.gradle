@@ -15,7 +15,7 @@ configurations {
 }
 
 ext.versions = [
-        checkerFramework: "3.9.1",
+    checkerFramework: "3.10.0",
 ]
 
 
@@ -30,6 +30,7 @@ dependencies {
     }
     else {
         implementation "org.checkerframework:checker:${versions.checkerFramework}"
+        implementation "org.checkerframework:checker-qual:${versions.checkerFramework}"
     }
 
     compileOnly "com.google.errorprone:javac:9+181-r4173-1"
