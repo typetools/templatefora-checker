@@ -1,0 +1,17 @@
+version: 2
+updates:
+- package-ecosystem: gradle
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: com.google.errorprone:javac
+    versions:
+    - 1.8.0-u20
+  - dependency-name: org.checkerframework:framework-test
+    versions:
+    - 3.10.0
+  - dependency-name: org.checkerframework:checker
+    versions:
+    - 3.10.0
