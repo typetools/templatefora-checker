@@ -15,7 +15,7 @@ and change every occurrence of "TemplateForA" to "Character Encoding".
 This command does so:
 
 ```
-find . -name .git -prune -o -type f -exec sed -i -e 's/TemplateForA/Character Encoding/g' {} \;
+find . -name .git -prune -o -type f -exec LC_ALL=C sed -i -e 's/TemplateForA/Character Encoding/g' {} \;
 ```
 
 2. Choose a name for the implementation class (e.g., "CharEncoding"), and
@@ -25,7 +25,7 @@ This includes in file names (rename several files including
 These commands make the changes:
 
 ```
-find . -name .git -prune -o -type f -exec sed -i -e 's/Templatefora/CharEncoding/g' {} \;
+find . -name .git -prune -o -type f -exec LC_ALL=C sed -i -e 's/Templatefora/CharEncoding/g' {} \;
 find . -name '*Templatefora*' -exec bash -c 'mv $0 ${0/Templatefora/CharEncoding}' {} \;
 ```
 
@@ -36,7 +36,7 @@ Change every occurrence of "templatefora" to "charencoding".
 These commands make the changes:
 
 ```
-find . -name .git -prune -o -type f -exec sed -i -e 's/templatefora/charencoding/g' {} \;
+find . -name .git -prune -o -type f -exec LC_ALL=C sed -i -e 's/templatefora/charencoding/g' {} \;
 for file in $(find . -name '*templatefora*'); do mv $file ${file/templatefora/charencoding}; done
 ```
 
@@ -50,8 +50,8 @@ for file in $(find . -name '*templatefora*'); do mv $file ${file/templatefora/ch
   These commands make the changes within files but do not rename directories:
 
 ```
-find . -type f -exec sed -i -e 's/org\.checkerframework\.checker\.templatefora/my.organization.templatefora/g' {} \;
-find . -type f -exec sed -i -e 's:org/checkerframework/checker/templatefora:my/organization/templatefora:g' {} \;
+find . -type f -exec LC_ALL=C sed -i -e 's/org\.checkerframework\.checker\.templatefora/my.organization.templatefora/g' {} \;
+find . -type f -exec LC_ALL=C sed -i -e 's:org/checkerframework/checker/templatefora:my/organization/templatefora:g' {} \;
 ```
 
 
