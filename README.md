@@ -1,6 +1,6 @@
 # Template for a checker built on the Checker Framework
 
-This is a template for a pluggable type-checker built on the Checker Framework.
+This repository contains a template for a pluggable type-checker built on the Checker Framework.
 
 ### How to use this template to build your own typechecker
 
@@ -71,6 +71,14 @@ LC_ALL=C find . -type f -exec sed -i -e 's:org/checkerframework/checker/template
 7. Remove all text from the top of this `README.md` file, through this line.
 
 
+# The remainder of this README
+
+The remainder of this README is the user-facing documentation for the analysis
+you will build.
+
+You should remove, from your version, everything above and including this line.
+
+
 # TemplateForA Checker
 
 A common problem when programming is TODO.
@@ -105,7 +113,8 @@ informing you of any potential errors related to TODO.
 ## How to specify your code
 
 At compile time, the TemplateForAChecker estimates what values the program
-may compute at run time.  It issues a warning if the program may TODO.
+may compute at run time.  It issues a warning if the program may
+TODO.
 It works via a technique called pluggable typechecking.
 
 You need to specify the contracts of methods and fields in your code --
@@ -115,7 +124,8 @@ contracts guarantee that TODO.
 
 You specify your code by writing *qualifiers* such as `@TemplateforaBottom`
 on types, to indicate more precisely what values the type represents.
-Here are the type qualifiers that are supported by the TemplateForAChecker:
+Here is a list of the type qualifiers that are supported by
+the TemplateForAChecker, with an explanation of each one:
 
 `@TemplateforaUnknown`:
 The value might or might not be TODO. It is not safe to use for TODO.
