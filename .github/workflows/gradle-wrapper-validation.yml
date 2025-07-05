@@ -13,4 +13,4 @@ jobs:
         with:
           fetch-depth: 1
           show-progress: false
-      - uses: gradle/wrapper-validation-action@v1
+      - uses: gradle/actions/wrapper-validation@v3
