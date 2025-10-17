@@ -4,27 +4,50 @@ plugins {
 }
 
 repositories {
-    // Use jcenter for resolving your dependencies.
+    // Use Maven Central for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    mavenCentral()
 }
 
+configurations {
+    // for putting Error Prone javac in bootclasspath for running tests
+    errorproneJavac
+}
+
+ext.versions = [
+    checkerFramework: "3.51.1",
+]
+
+
 sourceCompatibility = 1.8
+def checkerframework_local = false  // Set this variable to [true] while using local version of checker framework.
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    implementation "org.checkerframework:checker:2.8.1"
+    if (checkerframework_local) {
+        implementation files("${CHECKERFRAMEWORK}/checker/dist/checker-qual.jar")
+        implementation files("${CHECKERFRAMEWORK}/checker/dist/checker.jar")
+    }
+    else {
+        implementation "org.checkerframework:checker:${versions.checkerFramework}"
+        implementation "org.checkerframework:checker-qual:${versions.checkerFramework}"
+    }
+
+    compileOnly "com.google.errorprone:javac:9+181-r4173-1"
 
     // Testing
-    testImplementation "junit:junit:4.12"
-    testCompile "org.checkerframework:testlib:2.5.4"
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "org.checkerframework:framework-test:${versions.checkerFramework}"
+
+    errorproneJavac "com.google.errorprone:javac:9+181-r4173-1"
 }
 
 tasks.withType(JavaCompile).all {
     options.compilerArgs.add("-Xlint:all")
 }
 
-// Run `./gradlew publish` to publish your checker to your local Maven repository.
+// Add `mavenLocal()` in `repositories`, then run `./gradlew publishToMavenLocal`
+// to publish your checker to your local Maven repository.
 publishing {
     publications {
         maven(MavenPublication) {
@@ -33,6 +56,61 @@ publishing {
             version = "0.1-SNAPSHOT"
 
             from components.java
+        }
+    }
+}
+
+test {
+    inputs.files("tests/templatefora")
+    if (!JavaVersion.current().java9Compatible) {
+        jvmArgs "-Xbootclasspath/p:${configurations.errorproneJavac.asPath}"
+    } else {
+        // A list of add-export and add-open arguments to be used when running the Checker Framework.
+        // Keep this list in sync with the list in the Checker Framework manual.
+        var compilerArgsForRunningCF = [
+                // These are required in Java 16+ because the --illegal-access option is set to deny
+                // by default.  None of these packages are accessed via reflection, so the module
+                // only needs to be exported, but not opened.
+                "--add-exports", "jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
+                "--add-exports", "jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
+                "--add-exports", "jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED",
+                "--add-exports", "jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED",
+                "--add-exports", "jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED",
+                "--add-exports", "jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED",
+                "--add-exports", "jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED",
+                "--add-exports", "jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED",
+                // Required because the Checker Framework reflectively accesses private members in com.sun.tools.javac.comp.
+                "--add-opens", "jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED",
+        ]
+        jvmArgs += compilerArgsForRunningCF
+    }
+    testLogging {
+        showStandardStreams = true
+        // Show the found unexpected diagnostics and expected diagnostics not found.
+        exceptionFormat "full"
+        events "failed"
+    }
+}
+
+clean.doFirst {
+    delete "${rootDir}/tests/build/"
+}
+
+task printClasspath {
+    description "Prints the runtime classpath of the checker. " +
+            "When typechecking, put the output of this task on either the " +
+            "processor path or the classpath of the project being type-checed."
+    doLast {
+        println sourceSets.main.runtimeClasspath.asPath
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            // ensures that any .stub files present in the same directory as
+            // the checker source code are copied into the distributed jar
+            srcDirs += ["src/main/java"]
         }
     }
 }
