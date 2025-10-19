@@ -11,7 +11,7 @@ dependencies {
     implementation("org.checkerframework:checker-qual:${versions.checkerFramework}")
 }
 
-tasks.register(Copy, "copySources") {
+tasks.register("copySources", Copy) {
     includeEmptyDirs = false
     doFirst {
         // Delete the directory in case a previously copied file should no longer be in checker-qual
