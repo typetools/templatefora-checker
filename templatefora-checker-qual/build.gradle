@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id("java")
 }
 
 repositories {
@@ -7,38 +7,38 @@ repositories {
 }
 
 dependencies {
-    implementation "org.checkerframework:checker:${versions.checkerFramework}"
-    implementation "org.checkerframework:checker-qual:${versions.checkerFramework}"
+    implementation("org.checkerframework:checker:${versions.checkerFramework}")
+    implementation("org.checkerframework:checker-qual:${versions.checkerFramework}")
 }
 
-task copySources(type: Copy) {
+tasks.register(Copy, "copySources") {
     includeEmptyDirs = false
     doFirst {
         // Delete the directory in case a previously copied file should no longer be in checker-qual
-        delete file('src/main/java')
+        delete(file("src/main/java"))
     }
 
-    from files('../src/main/java')
+  from(files("../src/main/java"))
     // Replace the path below with your actual path.
-    include '**/org/checkerframework/checker/templatefora/qual/**'
+    include("**/org/checkerframework/checker/templatefora/qual/**")
 
     // Make files read only.
     fileMode(0444)
 
-    into file('src/main/java')
+    into(file("src/main/java"))
 }
 
 jar {
-    dependsOn copySources
+    dependsOn(copySources)
     manifest {
-        attributes('Export-Package': '*')
+        attributes("Export-Package": "*")
     }
 }
 
 compileJava {
-    dependsOn copySources
+    dependsOn(copySources)
 }
 
 clean {
-    delete file('src/')
+  delete(file("src/"))
 }
