@@ -1,6 +1,6 @@
 plugins {
-    id "java"
-    id "maven-publish"
+    id("java")
+    id("maven-publish")
 }
 
 repositories {
@@ -25,21 +25,21 @@ def checkerframework_local = false  // Set this variable to [true] while using l
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     if (checkerframework_local) {
-        implementation files("${CHECKERFRAMEWORK}/checker/dist/checker-qual.jar")
-        implementation files("${CHECKERFRAMEWORK}/checker/dist/checker.jar")
+        implementation(files("${CHECKERFRAMEWORK}/checker/dist/checker-qual.jar"))
+        implementation(files("${CHECKERFRAMEWORK}/checker/dist/checker.jar"))
     }
     else {
-        implementation "org.checkerframework:checker:${versions.checkerFramework}"
-        implementation "org.checkerframework:checker-qual:${versions.checkerFramework}"
+        implementation("org.checkerframework:checker:${versions.checkerFramework}")
+        implementation("org.checkerframework:checker-qual:${versions.checkerFramework}")
     }
 
-    compileOnly "com.google.errorprone:javac:9+181-r4173-1"
+    compileOnly("com.google.errorprone:javac:9+181-r4173-1")
 
     // Testing
-    testImplementation "junit:junit:4.13.2"
-    testImplementation "org.checkerframework:framework-test:${versions.checkerFramework}"
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.checkerframework:framework-test:${versions.checkerFramework}")
 
-    errorproneJavac "com.google.errorprone:javac:9+181-r4173-1"
+    errorproneJavac("com.google.errorprone:javac:9+181-r4173-1")
 }
 
 tasks.withType(JavaCompile).all {
@@ -55,7 +55,7 @@ publishing {
             artifactId = "templatefora-checker"
             version = "0.1-SNAPSHOT"
 
-            from components.java
+            from(components.java)
         }
     }
 }
@@ -63,7 +63,7 @@ publishing {
 test {
     inputs.files("tests/templatefora")
     if (!JavaVersion.current().java9Compatible) {
-        jvmArgs "-Xbootclasspath/p:${configurations.errorproneJavac.asPath}"
+        jvmArgs("-Xbootclasspath/p:${configurations.errorproneJavac.asPath}")
     } else {
         // A list of add-export and add-open arguments to be used when running the Checker Framework.
         // Keep this list in sync with the list in the Checker Framework manual.
@@ -87,21 +87,21 @@ test {
     testLogging {
         showStandardStreams = true
         // Show the found unexpected diagnostics and expected diagnostics not found.
-        exceptionFormat "full"
-        events "failed"
+        exceptionFormat = "full"
+        events("failed")
     }
 }
 
 clean.doFirst {
-    delete "${rootDir}/tests/build/"
+    delete("${rootDir}/tests/build/")
 }
 
-task printClasspath {
-    description "Prints the runtime classpath of the checker. " +
+tasks.register("printClasspath") {
+    description = "Prints the runtime classpath of the checker. " +
             "When typechecking, put the output of this task on either the " +
-            "processor path or the classpath of the project being type-checed."
+            "processor path or the classpath of the project being type-checked."
     doLast {
-        println sourceSets.main.runtimeClasspath.asPath
+        println(sourceSets.main.runtimeClasspath.asPath)
     }
 }
 
