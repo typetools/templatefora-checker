@@ -21,11 +21,9 @@ checker to verify character encoding, such as UTF-8.
    * use `gsed` from coreutils instead of MacOS `sed`, or
    * anywhere the instructions say `sed -i`, instead use `sed -i ''`
 
-   <!-- markdownlint-disable line-length -->
    ```sh
    LC_ALL=C find . -name .git -prune -o -type f -exec sed -i -e 's/TemplateForA/Character Encoding/g' {} \;
    ```
-   <!-- markdownlint-enable line-length -->
 
 2. Choose a name for the implementation class (e.g., "CharEncoding"), and
    change every occurrence of "Templatefora" to "CharEncoding".
@@ -33,12 +31,10 @@ checker to verify character encoding, such as UTF-8.
    `src/main/java/org/checkerframework/checker/templatefora/TemplateforaChecker.java`).
    These commands make the changes:
 
-   <!-- markdownlint-disable line-length -->
    ```sh
    LC_ALL=C find . -name .git -prune -o -type f -exec sed -i -e 's/Templatefora/CharEncoding/g' {} \;
    find . -name '*Templatefora*' -exec bash -c 'mv $0 ${0/Templatefora/CharEncoding}' {} \;
    ```
-   <!-- markdownlint-enable line-length -->
 
 3. Choose a directory/package name (e.g., "charencoding"), and
    Change every occurrence of "templatefora" to "charencoding".
@@ -46,12 +42,10 @@ checker to verify character encoding, such as UTF-8.
      `src/main/java/org/checkerframework/checker/templatefora/` and `tests/templatefora/`).
    These commands make the changes:
 
-   <!-- markdownlint-disable line-length -->
    ```sh
    LC_ALL=C find . -name .git -prune -o -type f -exec sed -i -e 's/templatefora/charencoding/g' {} \;
    for file in $(find . -name '*templatefora*'); do mv $file ${file/templatefora/charencoding}; done
    ```
-   <!-- markdownlint-enable line-length -->
 
 4. Change the groupId of the `publishing` block in the `build.gradle` file
    to an organization you belong to that can publish to Maven
@@ -62,12 +56,10 @@ checker to verify character encoding, such as UTF-8.
    `org/checkerframework/checker/templatefora` with whatever name you have chosen.
    These commands make the changes within files but do not rename directories:
 
-   <!-- markdownlint-disable line-length -->
    ```sh
    LC_ALL=C find . -type f -exec sed -i -e 's/org\.checkerframework\.checker\.templatefora/my.organization.templatefora/g' {} \;
    LC_ALL=C find . -type f -exec sed -i -e 's:org/checkerframework/checker/templatefora:my/organization/templatefora:g' {} \;
    ```
-   <!-- markdownlint-enable line-length -->
 
 5. Change the copyright info in the `LICENSE` file.  You may change the license
    as well, if you wish.
