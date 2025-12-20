@@ -18,12 +18,9 @@ tasks.register("copySources", Copy) {
         delete(file("src/main/java"))
     }
 
-  from(files("../src/main/java"))
+    from(files("../src/main/java"))
     // Replace the path below with your actual path.
     include("**/org/checkerframework/checker/templatefora/qual/**")
-
-    // Make files read only.
-    fileMode(0444)
 
     into(file("src/main/java"))
 }
